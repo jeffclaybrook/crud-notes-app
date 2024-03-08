@@ -5,16 +5,22 @@ const getNoteById = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
    cache: "no-store"
   })
+
   if (!res.ok) {
    throw new Error("Unable to fetch note")
   }
+  
   return res.json()
  } catch (error) {
   console.log(error)
  }
 }
 
-const EditNote = async ({ params }: { params: any }) => {
+const EditNote = async ({
+ params
+}: {
+ params: any
+}) => {
  const { id } = params
  const { note } = await getNoteById(id)
  const { title, description } = note

@@ -3,7 +3,10 @@ import Note from "@/models/note"
 import db from "@/lib/db"
 
 export async function POST(req: any) {
- const { title, description } = await req.json()
+ const {
+  title,
+  description
+ } = await req.json()
  await db()
  await Note.create({ title, description })
  return NextResponse.json({ message: "Note created" }, { status: 201 })

@@ -6,9 +6,11 @@ const getNotes = async () => {
   const res = await fetch("http://localhost:3000/api/notes", {
    cache: "no-store"
   })
+
   if (!res.ok) {
    throw new Error("Unable to fetch notes")
   }
+  
   return res.json()
  } catch (error) {
   console.log("Error loading notes", error)

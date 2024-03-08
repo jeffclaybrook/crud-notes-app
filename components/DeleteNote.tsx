@@ -2,10 +2,16 @@
 
 import { useRouter } from "next/navigation"
 
-const DeleteNote = ({ id }: { id: string }) => {
+const DeleteNote = ({
+ id
+}: {
+ id: string
+}) => {
  const router = useRouter()
+
  const removeNote = async () => {
   const confirmed = confirm("Are you sure?")
+  
   if (confirmed) {
    const res = await fetch(`http://localhost:3000/api/notes?id=${id}`, {
     method: "DELETE"
