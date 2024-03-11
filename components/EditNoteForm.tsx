@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react"
 import { useRouter } from "next/navigation"
+import DeleteNote from "./DeleteNote"
 
 const EditNoteForm = ({
  id,
@@ -47,7 +48,7 @@ const EditNoteForm = ({
    className="max-w-sm mx-auto"
   >
    <fieldset className="flex flex-col gap-3 w-full">
-    <legend>Edit Note</legend>
+    <legend className="mb-3">Edit Note</legend>
     <input
      type="text"
      placeholder="Title"
@@ -59,7 +60,7 @@ const EditNoteForm = ({
      placeholder="Description"
      value={newDescription}
      onChange={(e) => setNewDescription(e.target.value)}
-     className="textarea textarea-bordered textarea-md w-full"
+     className="textarea textarea-bordered textarea-md w-full text-base"
     />
     <button
      type="submit"
@@ -67,6 +68,7 @@ const EditNoteForm = ({
     >
      Update
     </button>
+    <DeleteNote id={id} />
    </fieldset>
   </form>
  )

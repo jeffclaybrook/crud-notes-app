@@ -5,7 +5,7 @@ interface MainProps {
 }
 
 const Main = ({ children }: MainProps) => (
- <main className="mt-8 px-8">{children}</main>
+ <main className="px-6">{children}</main>
 )
 
 export default Main

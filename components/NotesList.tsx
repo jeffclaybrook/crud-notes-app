@@ -1,5 +1,4 @@
 import Link from "next/link"
-import DeleteNote from "./DeleteNote"
 
 const getNotes = async () => {
  try {
@@ -21,15 +20,12 @@ const NotesList = async () => {
  const { notes } = await getNotes()
 
  return (
-  <div>
+  <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-4">
    {notes.map((item: any) => (
-    <div key={item._id} className="p-4 border rounded-lg border-slate-300 my-3 flex justify-between gap-5 items-start">
-     <Link href={`/editNote/${item._id}`} className="grow">
-      <h2 className="font-semibold text-2xl">{item.title}</h2>
-      <p>{item.description}</p>
-     </Link>
-     <DeleteNote id={item._id} />
-    </div>
+    <Link key={item.id} href={`/editNote/${item._id}`} className="card shadow-sm p-4 border rounded-lg border-slate-300 my-3">
+     <h2 className="font-semibold text-xl">{item.title}</h2>
+     <p>{item.description}</p>
+    </Link>
    ))}
   </div>
  )

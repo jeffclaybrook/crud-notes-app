@@ -43,7 +43,7 @@ const AddNote = () => {
    className="max-w-sm mx-auto"
   >
    <fieldset className="flex flex-col gap-3">
-    <legend>Add Note</legend>
+    <legend className="mb-3">Add Note</legend>
     <input
      type="text"
      placeholder="Title"
